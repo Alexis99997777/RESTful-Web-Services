@@ -1,180 +1,235 @@
-RESTful Web Services with Spring Boot
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESTful Web Services with Spring Boot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #ffffff;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            overflow-x: auto;
+            border-radius: 6px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .section {
+            margin-top: 40px;
+        }
+        .footer {
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+            padding-top: 20px;
+        }
+    </style>
+</head>
 
-This project is a RESTful Web Service built with Spring Boot, created as part of learning and practicing core backend concepts such as request mapping, dependency injection, validation, exception handling, and standalone deployment.
+<body>
 
-The application demonstrates how to build a clean REST API using Spring Boot, following best practices such as layered architecture and constructor-based dependency injection.
+<h1>RESTful Web Services with Spring Boot</h1>
 
-🚀 Features Implemented
+<p>
+This project is a <strong>RESTful Web Service</strong> built using
+<strong>Spring Boot</strong>. It was created to practice and demonstrate
+core backend concepts such as request mapping, dependency injection,
+validation, exception handling, and running a web service as a
+standalone application.
+</p>
 
-This project includes the following key Spring Boot and RESTful API features:
+<p>
+The application follows a clean, layered architecture and uses
+Spring Boot best practices, including constructor-based dependency
+injection and centralized exception handling.
+</p>
 
-✅ Project Setup
+<div class="section">
+    <h2>🚀 Features Implemented</h2>
 
-Create a Spring Boot project using Spring Boot Initializr
+    <h3>Project Setup</h3>
+    <ul>
+        <li>Create a Spring Boot project using Spring Boot Initializr</li>
+        <li>Run the web service as a standalone application (embedded Tomcat)</li>
+    </ul>
 
-Run the web service as a standalone application (embedded Tomcat)
+    <h3>REST Controller & Request Mapping</h3>
+    <ul>
+        <li><code>@RestController</code> and <code>@RequestMapping</code></li>
+        <li>Handle HTTP methods:
+            <ul>
+                <li>GET</li>
+                <li>POST</li>
+                <li>PUT</li>
+                <li>DELETE</li>
+            </ul>
+        </li>
+    </ul>
 
-✅ REST Controller & Request Mapping
+    <h3>Request Data Handling</h3>
+    <ul>
+        <li>Read path variables using <code>@PathVariable</code></li>
+        <li>Read query parameters using <code>@RequestParam</code></li>
+        <li>Support required and optional request parameters</li>
+        <li>Read HTTP POST request body using <code>@RequestBody</code></li>
+    </ul>
 
-@RestController and @RequestMapping
+    <h3>Validation</h3>
+    <ul>
+        <li>Validate request body using <code>@Valid</code></li>
+        <li>Bean validation annotations (e.g. <code>@NotNull</code>, <code>@Size</code>)</li>
+    </ul>
 
-Handle HTTP methods:
+    <h3>Response Handling</h3>
+    <ul>
+        <li>Return Java objects as HTTP responses</li>
+        <li>Automatic conversion to JSON / XML</li>
+        <li>Set HTTP response status codes using
+            <code>ResponseEntity</code> and <code>@ResponseStatus</code>
+        </li>
+    </ul>
 
-GET
+    <h3>Temporary Data Storage</h3>
+    <ul>
+        <li>Store user data temporarily using an in-memory data structure (e.g. Map)</li>
+    </ul>
 
-POST
+    <h3>Exception Handling</h3>
+    <ul>
+        <li>Global exception handling</li>
+        <li>Custom error message objects</li>
+        <li>Handle generic, specific, and custom-defined exceptions</li>
+        <li>Catch multiple exceptions with a single handler method</li>
+    </ul>
 
-PUT
+    <h3>Dependency Injection</h3>
+    <ul>
+        <li>Create a service layer using <code>@Service</code></li>
+        <li>Use Spring IoC container for dependency management</li>
+        <li>Constructor-based dependency injection</li>
+    </ul>
+</div>
 
-DELETE
+<div class="section">
+    <h2>🏗 Project Architecture</h2>
 
-✅ Request Data Handling
-
-Read Path Variables using @PathVariable
-
-Read Query Parameters using @RequestParam
-
-Required and optional parameters
-
-Read HTTP POST request body using @RequestBody
-
-✅ Validation
-
-Validate request body using @Valid
-
-Bean validation annotations (e.g. @NotNull, @Size, etc.)
-
-✅ Response Handling
-
-Return Java objects as HTTP responses
-
-Automatic conversion to JSON / XML
-
-Set HTTP response status codes using:
-
-ResponseEntity
-
-@ResponseStatus
-
-✅ Temporary Data Storage
-
-Store users temporarily using an in-memory data structure (e.g. Map)
-
-✅ Exception Handling
-
-Global exception handling
-
-Custom error message objects
-
-Handle:
-
-Generic exceptions
-
-Specific exceptions
-
-Custom-defined exceptions
-
-Catch multiple exceptions with a single handler method
-
-✅ Dependency Injection
-
-Create a Service Layer
-
-Use @Service annotation
-
-Constructor-based Dependency Injection
-
-@Autowired dependency resolution by Spring IoC container
-
-🏗 Project Architecture
-
-The project follows a layered architecture:
-
+    <pre>
 Controller Layer
     ↓
 Service Layer
     ↓
-Utility / Data Layer (temporary storage)
+Utility / Temporary Data Storage
+    </pre>
 
+    <ul>
+        <li><strong>Controller Layer</strong>: Handles HTTP requests and responses</li>
+        <li><strong>Service Layer</strong>: Contains business logic</li>
+        <li><strong>Utility Classes</strong>: Shared helper logic (e.g. ID generation)</li>
+    </ul>
+</div>
 
-Controller Layer
-Handles HTTP requests and responses.
+<div class="section">
+    <h2>🧠 Key Concepts Practiced</h2>
+    <ul>
+        <li>RESTful API design</li>
+        <li>Spring Beans and IoC Container</li>
+        <li>Dependency Injection (Field vs Constructor-based)</li>
+        <li>Request lifecycle vs Bean lifecycle</li>
+        <li>Standalone Spring Boot application execution</li>
+        <li>Separation of concerns</li>
+    </ul>
+</div>
 
-Service Layer
-Contains business logic.
+<div class="section">
+    <h2>▶️ Running the Application</h2>
 
-Utility Classes
-Shared helper logic (e.g. ID generation).
+    <h3>Option 1: Run from IDE</h3>
+    <p>
+        Run the main Spring Boot application class directly from your IDE
+        (Eclipse or IntelliJ).
+    </p>
 
-🧠 Key Concepts Practiced
+    <h3>Option 2: Run as Standalone Application</h3>
 
-RESTful API design
-
-Spring IoC Container & Spring Beans
-
-Dependency Injection (Field vs Constructor-based)
-
-Request lifecycle vs Bean lifecycle
-
-Standalone Spring Boot application execution
-
-Separation of concerns
-
-▶️ Running the Application
-Option 1: Run from IDE
-
-Run the main Spring Boot application class directly from your IDE (Eclipse / IntelliJ).
-
-Option 2: Run as Standalone Application
-
-Build the project:
-
+    <p>Build the project:</p>
+    <pre>
 mvn clean package
+    </pre>
 
-
-Run the generated JAR:
-
+    <p>Run the generated JAR file:</p>
+    <pre>
 java -jar target/your-application-name.jar
+    </pre>
 
+    <p>
+        The application will start on:
+        <code>http://localhost:8080</code>
+    </p>
+</div>
 
-The application will start on:
+<div class="section">
+    <h2>🧪 Testing the API</h2>
+    <p>You can test the API using:</p>
+    <ul>
+        <li>Postman</li>
+        <li>curl</li>
+        <li>Web browser (for GET requests)</li>
+    </ul>
 
-http://localhost:8080
-
-🧪 Testing the API
-
-You can test the API using:
-
-Postman
-
-curl
-
-Browser (for GET requests)
-
-Example:
-
+    <p>Example request:</p>
+    <pre>
 GET http://localhost:8080/users/{userId}
+    </pre>
+</div>
 
-📦 Technologies Used
+<div class="section">
+    <h2>📦 Technologies Used</h2>
+    <ul>
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>Spring Web</li>
+        <li>Maven</li>
+        <li>Embedded Tomcat</li>
+        <li>JSON / XML serialization</li>
+    </ul>
+</div>
 
-Java
+<div class="section">
+    <h2>📚 Learning Purpose</h2>
+    <p>
+        This project was created for learning and practicing Spring Boot
+        RESTful web services, with a focus on understanding request handling,
+        dependency injection, exception handling, and application structure.
+    </p>
+</div>
 
-Spring Boot
+<div class="footer">
+    <p><strong>Author:</strong> Alexis</p>
+</div>
 
-Spring Web
-
-Maven
-
-Embedded Tomcat
-
-JSON / XML serialization
-
-📚 Learning Purpose
-
-This project was created for learning and practicing Spring Boot RESTful web services, focusing on understanding:
-
-How Spring handles HTTP requests
-
-How dependency injection works internally
-
-How to structure a backend application properly
+</body>
+</html>
